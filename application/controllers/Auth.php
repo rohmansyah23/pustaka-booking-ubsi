@@ -1,0 +1,126 @@
+<?php
+
+class Auth extends CI_Controller
+{
+
+    public function index()
+    {
+        //jika statusnya sudah login, maka tidak bisa mengakses halaman login alias dikembalikan ke tampilan user
+        if($this->session->userdata('email')){
+            redirect('admin');
+        }
+
+        $this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email', [
+            'required' => 'Email Harus diisi!!',
+            'valid_email' => 'Email Tidak Benar!!'
+        ]);
+        $this->form_validation->set_rules('password', 'Password', 'required|trim', [
+            'required' => 'Password Harus diisi'
+        ]);
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = 'Login';
+            $data['user'] = '';
+            //kata 'login' merupakan nilai dari variabel judul dalam array $data dikirimkan ke view aute_header
+            $this->load->view('admin/login/header', $data);
+            $this->load->view('admin/login/login');
+            $this->load->view('admin/login/footer');
+        } else {
+            $this->_login();
+        }
+    }
+
+    private function _login()
+    {
+        $email = htmlspecialchars($this->input->post('email', true));
+        $password = $this->input->post('password', true);
+
+        $user = $this->ModelUser->cekData(['email' => $email])->row_array();
+
+        //jika usernya ada
+        if ($user) {
+            //jika user sudah aktif
+            if ($user['is_active'] == 1) {
+                //cek password
+                if (password_verify($password, $user['password'])) {
+                    $data = [
+                        'email' => $user['email'],
+                        'role_id' => $user['role_id']
+                    ];
+
+                    $this->session->set_userdata($data);
+                    redirect('admin');
+                } else {
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Password salah!!</div>');
+                    redirect('admin');
+                }
+            } else {
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">User belum diaktifasi!!</div>');
+                redirect('admin');
+            }
+        } else {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Email tidak terdaftar!!</div>');
+            redirect('admin');
+        }
+    }
+
+    public function registrasi()
+    {
+        if ($this->session->userdata('email')) {
+            redirect('user');
+        }
+        $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required', [
+            'required' => 'Nama Belum diis!!'
+        ]);
+        $this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email|is_unique[user.email]', [
+            'valid_email' => 'Email Tidak Benar!!',
+            'required' => 'Email Belum diisi!!',
+            'is_unique' => 'Email Sudah Terdaftar!'
+        ]);
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+            'matches' => 'Password Tidak Sama!!',
+            'min_length' => 'Password Terlalu Pendek'
+        ]);
+        $this->form_validation->set_rules('password2', 'Repeat Password', 'required|trim|matches[password1]');
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = 'Registrasi Member';
+            $this->load->view('admin/login/header', $data);
+            $this->load->view('admin/login/login');
+            $this->load->view('admin/login/footer');
+        } else {
+            $email = $this->input->post('email', true);
+            $data = [
+                'nama' => htmlspecialchars($this->input->post('nama', true)),
+                'email' => htmlspecialchars($email),
+                'image' => 'default.jpg',
+                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'role_id' => 2,
+                'is_active' => 1,
+                'tanggal_input' => time()
+            ];
+
+            $this->ModelUser->simpanData($data); //menggunakan model
+
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">&emsp;&emsp; Selamat!! akun anda sudah dibuat. <br>&emsp;&emsp; Silahkan Aktivasi Akun anda</div>');
+            redirect('auth');
+        }
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">&emsp;&emsp;Anda telah logout!!</div>');
+        redirect('auth');
+    }
+
+    public function blok()
+    {
+        $this->load->view('admin/blok');
+    }
+
+    public function gagal()
+    {
+        $this->load->view('admin/gagal');
+    }
+}
