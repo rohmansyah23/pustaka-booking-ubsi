@@ -5,7 +5,7 @@
     <?php foreach ($buku as $item) { ?>
     <div class="book">
         <div class="container">
-            <div class="">
+            <div class="image-container">
                 <img src="<?= base_url('assets/img/upload/' . $item->image); ?>" alt="<?= $item->judul_buku ?>">
             </div>
         </div>
@@ -20,13 +20,12 @@
                 </div>
             </div>
             <div class="overlay">
-                <div class="button-container">
+                <div class="button-container mb-3">
                     <?php if ($item->stok < 1) { ?>
-                        <span class="btn btn-primary disabled">Booking 0</span>
                     <?php } else { ?>
-                        <a class="btn btn-warning" href="<?= base_url('booking/tambahBooking/' . $item->id); ?>"><i class="fas fa-shopping-cart"></i> Booking</a>
+                        <a class="tombol tombol-booking mr-1" href="<?= base_url('booking/tambahBooking/' . $item->id); ?>"><i class="fas fa-shopping-cart"></i> Booking</a>
                     <?php } ?>
-                    <a class="btn btn-dark" href="<?= base_url('home/detailBuku/' . $item->id); ?>"><i class="fas fa-search"></i> Detail</a>
+                    <a class="tombol tombol-detail" href="<?= base_url('home/detailBuku/' . $item->id); ?>"><i class="fas fa-search"></i> Detail</a>
                 </div>
             </div>
         </div>
@@ -34,4 +33,3 @@
     <?php } ?>
     <!-- end looping -->
 </div>
-

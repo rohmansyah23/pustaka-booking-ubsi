@@ -24,8 +24,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-warning">Log in</button>
-          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-login">Log in</button>
+          <button type="button" class="btn btn-logout" data-dismiss="modal">Close</button>
         </div>
       </form>
     </div>
@@ -38,7 +38,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Daftar Anggota</h5>
+        <h5 class="modal-title">Daftar Member</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -62,8 +62,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-warning">Simpan</button>
-          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-login">Simpan</button>
+          <button type="button" class="btn btn-logout" data-dismiss="modal">Close</button>
         </div>
       </form>
     </div>

@@ -30,14 +30,3 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
-
-# Uploaded files (user-generated content)
-assets/img/upload/*
-!assets/img/upload/.gitkeep
-assets/img/profile/*
-!assets/img/profile/.gitkeep
-
-# Logs & temp
-*.log
-application/logs/*.log
-application/cache/*.html

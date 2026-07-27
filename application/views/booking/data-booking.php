@@ -1,21 +1,17 @@
 <div class="container-deku">
-    <div class="row col-md-12">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <h4 class="text-center"><i class="fas fa-shopping-cart" style="color: #dc3545;"></i> Data Booking</h4>
-        </div>
-        <div class="col-md-4 mt-1">
-            <p class="text-center"><i class="fas fa-calendar" style="color: #dc3545;"></i> <?= date('l, F j, Y'); ?></p>
-        </div>
+    <div class="row text-center">
+        <div class="col-md-4"><h5 class="mt-4" style="color: crimson;"></h5></div>
+        <div class="col-md-5"><h5 class="mt-4"><i class="fa-solid fa-cart-shopping" style="color:crimson;"></i> Buku yang sudah anda booking</h5></div>
+        <div class="col-md-3"><h5 class="mt-4"><i class="fa-solid fa-calendar-days" style="color:crimson;"></i>&nbsp; <?= date('Y-m-d'); ?></h5></div>
     </div>
     <div class="container mt-3">
         <div class="text-center">
             <div class="table-responsive full-width">
-                <table class="table table-bordered table-striped table-hover" id="table-datatable">
+                <table class="table table-bordered table-dark" id="table-datatable">
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Buku</th>
+                            <th>Judul Buku</th>
                             <th>Penulis</th>
                             <th>Penerbit</th>
                             <th>Tahun</th>
@@ -25,7 +21,7 @@
                     <tbody>
                         <?php $no = 1; foreach ($temp as $t): ?>
                         <tr>
-                            <td><?= $no; ?></td>
+                            <td><?= $no; ?>.</td>
                             <td>
                                 <img src="<?= base_url('assets/img/upload/' . $t['image']); ?>" class="rounded" alt="No Picture" style="width: 150px; height: 200px;" />
                             </td>
@@ -43,16 +39,17 @@
                 </table>
             </div>
             <br>
-            <div>
-                <a class="btn btn-warning" href="<?php echo base_url(); ?>">
-                    <i class="fas fw fa-play"></i> Lanjutkan Booking Buku
+            <div class="">
+                <a class="tombol tombol-booking mr-2" href="<?php echo base_url(); ?>">
+                    <i class="fa fa-cart-plus"></i> Tambah Buku
                 </a>
-                <a class="btn btn-dark" href="<?php echo base_url() . 'booking/bookingSelesai/' . $this->session->userdata('id_user'); ?>">
-                    <i class="fas fw fa-stop"></i> Selesaikan Booking
+                <a class="tombol tombol-daftar" href="<?php echo base_url() . 'booking/bookingSelesai/' . $this->session->userdata('id_user'); ?>">
+                    <i class="fa fa-cart-flatbed" style="color:crimson;"></i> Selesaikan Booking
                 </a>
             </div>
-            <br><br><br>
+            <br><br>
         </div>
     </div>
+
 </div>
 

@@ -1,32 +1,25 @@
-<!-- Begin Page Content -->
 <div class="container-deku">
-    <div class="row">
-        <div class="col-lg mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-lg">
             <?= $this->session->flashdata('pesan'); ?>
         </div>
     </div>
-    <div class="" style="max-width: 100%;">
-        <div class="row no-gutters mt-5 my-5 ml-5 shadow rounded" style="background-color: ;">
-            <div class="col-md-4">
-                <img src="<?= base_url('assets/img/profile/') . $image; ?>" class="card-img border" alt="...">
-            </div>
-            <div class="caption col-md-8">
-                <div class="card-body border rounded" style="width: 100%; height: 100%; background: linear-gradient(to right, white, ghostwhite, #ccc, #ccc); ">
-                    <div class="mt-3 ml-5">
-                        <h4 class="card-title">Informasi Profil</h4><br>
-                        <p class="card-title text-disable">Nama : <?= $user; ?></p>
-                        <p class="card-title">Email : <?= $email; ?></p>
-                        <p class="card-title">Alamat : <?= $alamat; ?></p>
-                        <p class="card-title">Menjadi member sejak : <?= date('d F Y', $tanggal_input); ?></p><br>
-                        <a class="btn btn-warning shadow" href="<?= base_url('member/ubahprofil'); ?>"><i class="fas fa-user-edit"></i> Ubah Profile</a>
-                        <a class="btn btn-dark" href="<?= base_url(); ?>"><i class="fas fa-reply"></i> Kembali</a>
-                    </div>
-                </div>
+    <div class="row rounded">
+        <div class="book_p col-md-4">
+            <img src="<?= base_url('assets/img/profile/') . $image; ?>">
+        </div>
+        <div class="col-md-5">
+            <div class="card rounded">
+                <div class="card-body">
+                    <h2 class="card-title mt-4" style="color: crimson;">Informasi Profil</h2>
+                    <p class="card-text">Nama Member : <?= $user; ?></p>
+                    <p class="card-text">Email : <?= $email ?></p>
+                    <p class="card-text">Alamat : <?= $alamat ?></p>
+                    <p class="card-text">Menjadi Member Sejak : <?= date('d F Y', $tanggal_input); ?></p>
+                    <a class="tombol tombol-booking mr-1" href="<?= base_url('member/ubahprofil');?>"><i class="fas fa-user-edit"></i> Ubah Profil</a>
+                <a class="tombol tombol-detail" href="<?= base_url(); ?>"><i class="fas fa-reply"></i>&emsp;Kembali&emsp;</a>
+                </div>  
             </div>
         </div>
     </div>
 </div>
-<br>
-<!-- /.container-fluid -->
-</div>
-<!-- End of Main Content -->

@@ -69,15 +69,15 @@ class Auth extends CI_Controller
             redirect('user');
         }
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required', [
-            'required' => 'Nama Belum diis!!'
+            'required' => '*Nama Belum diis!!'
         ]);
         $this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email|is_unique[user.email]', [
-            'valid_email' => 'Email Tidak Benar!!',
-            'required' => 'Email Belum diisi!!',
-            'is_unique' => 'Email Sudah Terdaftar!'
+            'valid_email' => '*Email Tidak Benar!!',
+            'required' => '*Email Belum diisi!!',
+            'is_unique' => '*Email Sudah Terdaftar!'
         ]);
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
-            'matches' => 'Password Tidak Sama!!',
+            'matches' => '*Password Tidak Sama!!',
             'min_length' => 'Password Terlalu Pendek'
         ]);
         $this->form_validation->set_rules('password2', 'Repeat Password', 'required|trim|matches[password1]');
@@ -100,7 +100,7 @@ class Auth extends CI_Controller
 
             $this->ModelUser->simpanData($data); //menggunakan model
 
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">&emsp;&emsp; Selamat!! akun anda sudah dibuat. <br>&emsp;&emsp; Silahkan Aktivasi Akun anda</div>');
+            $this->session->set_flashdata('pesan', '<div class="alert tombol-alert" role="alert">*Pendaftaran Berhasil!! Silahkan masukan email dan password akun anda yang sudah anda buat.</div>');
             redirect('auth');
         }
     }
@@ -110,7 +110,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
 
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">&emsp;&emsp;Anda telah logout!!</div>');
+        $this->session->set_flashdata('pesan', '<div class="alert tombol-alert" role="alert">Anda telah logout!!</div>');
         redirect('auth');
     }
 

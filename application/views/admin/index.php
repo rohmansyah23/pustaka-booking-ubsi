@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <a href="<?= base_url('user'); ?>"><i class="fas fa-user-tag fa-3x text-success"></i></a>
+              <a href="<?= base_url('pinjam'); ?>"><i class="fas fa-user-tag fa-3x text-success"></i></a>
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <a href="<?= base_url('user'); ?>"><i class="fas fa-shopping-cart fa-3x text-danger"></i></a>
+              <a href="<?= base_url('pinjam/DaftarBooking'); ?>"><i class="fas fa-shopping-cart fa-3x text-danger"></i></a>
             </div>
           </div>
         </div>
@@ -94,8 +94,8 @@
   <div class="row">
     <div class="table-responsive table-bordered col-sm-5 ml-auto mr-auto mt-2">
       <div class="page-header">
-        <h5 class="fas fa-users text-primary mt-2 "> Data User</h5>
-        <a class="text-danger" href="<?php echo base_url('user/anggota'); ?>"><i class="fas fa-search mt-2 float-right"> Tampilkan</i></a>
+        <a class="text-primary" style="text-decoration:inherit;"><i class="fas fa-users mt-2"></i><b> Data Member</b></a>
+        <a class="text-danger float-right" style="text-decoration: none;" href="<?php echo base_url('user/anggota'); ?>"><i class="fas fa-search mt-2"></i><b> Tampilkan</b></a>
       </div>
       <table class="table mt-3">
     <thead>
@@ -134,8 +134,8 @@
 
     <div class="table-responsive table-bordered col-sm-5 ml-auto mr-auto mt-2">
       <div class="page-header">
-        <span class="fas fa-book text-warning mt-2"> Data Buku</span>
-        <a href="<?= base_url('buku'); ?>"><i class="fas fa-search text-primary mt-2 float-right"> Tampilkan</i></a>
+        <a class="text-warning" style="text-decoration:inherit;"><i class="fas fa-book mt-2"></i><b> Data Buku</b></a>
+        <a class="text-primary float-right" style="text-decoration: none;" href="<?= base_url('buku'); ?>"><i class="fas fa-search mt-2"></i><b> Tampilkan</b></a>
       </div>
       <div class="table-responsive">
         <table class="table mt-3" id="table-datatable">

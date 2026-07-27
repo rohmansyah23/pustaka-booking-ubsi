@@ -1,138 +1,139 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
 }
 
-body{
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+.msk {
+    background-color: #212121;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.container{
-    background-color: #fff;
+.masuk {
+    background-color: #212121;
     border-radius: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
-    width: 768px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 768px; /* Lebar maksimum */
     min-height: 480px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px; /* Padding tambahan */
 }
 
-.container p{
+.masuk p {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;
 }
 
-.container span{
-    font-size: 12px;
+.masuk span {
+    font-size: 14px;
+    color: whitesmoke;
 }
 
-.container a{
-    color: #333;
-    font-size: 13px;
+.masuk a {
+    font-size: 14px;
+    color: whitesmoke;
     text-decoration: none;
     margin: 15px 0 10px;
 }
 
-.container button{
-    background-color: #512da8;
-    color: #fff;
-    font-size: 12px;
-    padding: 10px 45px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 10px;
-    cursor: pointer;
+.masuk a:hover {
+    display: absolute;
+    font-size: 14px;
+    color: #212121;
+    text-decoration: none;
+    margin: 15px 0 10px;
 }
 
-.container button.hidden{
-    background-color: transparent;
-    border-color: #fff;
+.masuk h1 {
+    color: crimson;
+    text-decoration: none;
 }
 
-.container form{
-    background-color: #fff;
+.masuk form {
+    background-color: #212121;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
-    height: 100%;
+    padding: 0 20px; /* Padding tambahan */
+    height: 98%;
 }
 
-.container input{
+.masuk input {
     background-color: #eee;
     border: none;
     margin: 8px 0;
     padding: 10px 15px;
     font-size: 13px;
     border-radius: 8px;
-    width: 100%;
+    width: 98%;
     outline: none;
 }
 
-.form-container{
+.form-masuk {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
 }
 
-.sign-in{
+.sign-in {
     left: 0;
     width: 50%;
-    z-index: 2;
+    z-index: 2; 
 }
 
-.container.active .sign-in{
+.sign-in a {
+    font-size: 14px;
+}
+
+.masuk.active .sign-in {
     transform: translateX(100%);
 }
 
-.sign-up{
+.sign-up {
     left: 0;
     width: 50%;
     opacity: 0;
     z-index: 1;
 }
 
-.container.active .sign-up{
+.masuk.active .sign-up {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
     animation: move 0.6s;
 }
 
-@keyframes move{
-    0%, 49.99%{
+@keyframes move {
+    0%, 49.99% {
         opacity: 0;
         z-index: 1;
     }
-    50%, 100%{
+    50%, 100% {
         opacity: 1;
         z-index: 5;
     }
 }
 
-.social-icons{
-    margin: 20px 0;
+.social-icons {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-.social-icons a{
+.social-icons a {
     border: 1px solid #ccc;
     border-radius: 20%;
     display: inline-flex;
@@ -143,7 +144,19 @@ body{
     height: 40px;
 }
 
-.toggle-container{
+.social-icons a:hover {
+    border: 1px solid crimson;
+    color: crimson;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
+
+.toggle-masuk {
     position: absolute;
     top: 0;
     left: 50%;
@@ -153,18 +166,18 @@ body{
     transition: all 0.6s ease-in-out;
     border-radius: 150px 0 0 100px;
     z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.container.active .toggle-container{
+.masuk.active .toggle-masuk {
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
 }
 
-.toggle{
-    background-color: #512da8;
+.toggle {
+    background-color: crimson;
     height: 100%;
-    background: linear-gradient(to right, #5c6bc0, #512da8);
-    color: #fff;
+    color: #eee;
     position: relative;
     left: -100%;
     height: 100%;
@@ -173,11 +186,11 @@ body{
     transition: all 0.6s ease-in-out;
 }
 
-.container.active .toggle{
+.masuk.active .toggle {
     transform: translateX(50%);
 }
 
-.toggle-panel{
+.toggle-panel {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -185,26 +198,42 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 30px;
+    padding: 0 20px; /* Padding tambahan */
     text-align: center;
     top: 0;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
 }
 
-.toggle-left{
+.toggle-left {
     transform: translateX(-200%);
 }
 
-.container.active .toggle-left{
+.masuk.active .toggle-left {
     transform: translateX(0);
 }
 
-.toggle-right{
+.toggle-right {
     right: 0;
     transform: translateX(0);
 }
 
-.container.active .toggle-right{
+.masuk.active .toggle-right {
     transform: translateX(200%);
 }
+
+.alert {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 70%;
+    transform: translate(-50%, -50%);
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.35rem;
+    text-align: center; /* Teks di tengah */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+   

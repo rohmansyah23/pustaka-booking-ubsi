@@ -7,16 +7,16 @@
 <!-- Custom scripts for all pages-->
 
 <script>
-    const container = document.getElementById('container');
+    const masuk = document.getElementById('masuk');
     const registerBtn = document.getElementById('register');
     const loginBtn = document.getElementById('login');
 
     registerBtn.addEventListener('click', () => {
-        container.classList.add("active");
+        masuk.classList.add("active");
     });
 
     loginBtn.addEventListener('click', () => {
-        container.classList.remove("active");
+        masuk.classList.remove("active");
     });
 </script>
 

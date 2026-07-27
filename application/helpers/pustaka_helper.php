@@ -5,7 +5,7 @@ function cek_login()
     $ci = get_instance();
 
     if (!$ci->session->userdata('email')) {
-        $ci->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">&emsp;&emsp;Silahkan login terlebih dahulu</div>');
+        $ci->session->set_flashdata('pesan', '<div class="alert tombol-alert" role="alert">*Silahkan login terlebih dahulu</div>');
         redirect('auth');
     } else {
         $role_id = $ci->session->userdata('role_id');
@@ -18,7 +18,7 @@ function cek_user()
     $ci = get_instance();
     $role_id = $ci->session->userdata('role_id');
     if ($role_id != 1) {
-        $ci->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">&emsp;&emsp; Login berhasil </div>');
+        $ci->session->set_flashdata('pesan', '<div class="alert tombol-alert" role="alert">*Anda sudah Login!!</div>');
         redirect('home');
     }
 }

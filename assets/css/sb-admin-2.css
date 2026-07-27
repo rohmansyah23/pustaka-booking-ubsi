@@ -10602,13 +10602,16 @@ a:focus {
   position: fixed;
   right: 1rem;
   bottom: 1rem;
-  display: none;
+  display: flex; /* Membuat konten berada di tengah secara horizontal */
+  justify-content: center; /* Mengatur konten menjadi di tengah secara horizontal */
+  align-items: center; /* Mengatur konten menjadi di tengah secara vertikal */
   width: 2.75rem;
   height: 2.75rem;
-  text-align: center;
   color: #fff;
   background: rgba(90, 92, 105, 0.5);
-  line-height: 46px;
+  line-height: 2.75rem; /* Mengatur tinggi konten agar menjadi di tengah secara vertikal */
+  text-align: center; /* Jika isi konten memerlukan penataan tengah */
+  text-decoration: none;
 }
 
 .scroll-to-top:focus, .scroll-to-top:hover {
@@ -10617,6 +10620,7 @@ a:focus {
 
 .scroll-to-top:hover {
   background: #5a5c69;
+  text-decoration: none;
 }
 
 .scroll-to-top i {

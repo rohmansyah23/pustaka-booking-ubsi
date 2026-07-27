@@ -1,12 +1,12 @@
 
-    <div class="container">
+    <div class="container-deku">
         <div class="text-center"><br>
             <?php foreach ($useraktif as $u): ?>
-            <h6>Terimakasih <b><?= $u->nama; ?></b> Berikut daftar buku yang anda pesan :</h6>
+            <h5>Terimakasih <b style="color:crimson;"><?= $u->nama; ?>, </b>Berikut daftar buku yang anda pesan :</h5>
             <?php endforeach; ?><br>
             <tr>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped table-hover" id="table-datatable">
+                        <table class="table table-bordered table-dark" id="table-datatable">
                             <tr>
                                 <th>No.</th>
                                 <th>Buku</th>
@@ -16,7 +16,7 @@
                             </tr>
                             <?php $no = 1; foreach ($items as $i): ?>
                             <tr>
-                                <td><?= $no; ?></td>
+                                <td><?=$no;?>.</td>
                                 <td style="text-align: center;">
                                     <img src="<?= base_url('assets/img/upload/' . $i['image']); ?>"class="rounded" alt="No Picture" style="width: 150px; height: 200px;">
                                 </td>
@@ -43,12 +43,9 @@
                 </td>
             </tr>
             <tr>
-                <td>Download Bukti Booking Buku</td>
-            </tr>
-            <tr>
                 <td>
-                    <a class="btn btn-sm btn-outline-danger" onclick="showInformation()" href="<?= base_url('booking/exporttoPdf/' . $this->session->userdata('id_user')); ?>" target="_blank">
-                        <span class="far fa-lg fa-fw fa-file-pdf"></span> PDF
+                    <a class="tombol tombol-booking" onclick="showInformation()" href="<?= base_url('booking/exporttoPdf/' . $this->session->userdata('id_user')); ?>" target="_blank">
+                        <span class="far fa-lg fa-fw fa-file-pdf"></span> Download Bukti
                     </a>
                 </td>
             </tr>
